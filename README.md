@@ -14,7 +14,7 @@ Download the .zip file and unpack into a new folder. Open the R file with the R 
 1: depth (top), 2: depth (bottom), 3: age (top), 4: age (bottom), 5: volume of sediment, 6: number of counted charcoal particles.
 
 # Literature
-For the original version of "CharAnalysis", please check the resprective repository by Philip Higuera (https://github.com/phiguera/CharAnalysis) and these publications:
+For the original version of "CharAnalysis", please check the respective repository by Philip Higuera (https://github.com/phiguera/CharAnalysis) and these publications:
 
 <blockquote>Higuera, P.E., L.B. Brubaker, P.M. Anderson, F.S. Hu, T.A. Brown (2009): Vegetation mediated the impacts of postglacial climatic change on fire regimes in the south-central Brooks Range, Alaska. Ecological Monographs 79: 201-219</blockquote>
 
