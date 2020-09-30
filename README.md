@@ -1,4 +1,4 @@
-# CharcoalAnalysis
+# CharcoalAnalysis in R
 R script for the analysis of macroscopic charcoal records from sedimentary archives. It combines previous work (please check publications listed below) to provide a quick way of evaluating fire signals within the record, featuring:
 - interpolation to equal time steps
 - calculation of charcoal accumulation rates (CHAR)
