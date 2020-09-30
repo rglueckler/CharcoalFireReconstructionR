@@ -13,7 +13,7 @@ This script was created in R v.4.0.2 and utilizes packages "paleofire", "locfit"
 
 # How to use the script
 Download the .zip file and unpack into a new folder. Open the R file with the R tool of your choice. Your data should be in a .csv table with the following columns: 
-1: depth (top), 2: depth (bottom), 3: age (top), 4: age (bottom), 5: volume of sediment, 6: number of counted charcoal particles.
+1: depth (top), 2: depth (bottom), 3: age (top), 4: age (bottom), 5: volume of sediment, 6: number of counted charcoal particles, 7: uncertainty of charcoal count. You can add additional columns, e.g. for individual size classes or morphotypes and then select the respective columns within the script.
 
 # Literature
 For the original version of "CharAnalysis", please check the respective repository by Philip Higuera (https://github.com/phiguera/CharAnalysis) and these publications:
