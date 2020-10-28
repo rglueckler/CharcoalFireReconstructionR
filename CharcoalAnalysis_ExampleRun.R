@@ -1,4 +1,4 @@
-### CharcoalAnalysis v.1.0
+### CharcoalAnalysis v1.0
 
 ### Script for the evaluation of sedimentary charcoal records
 
@@ -22,7 +22,7 @@
 
 ### Important:
 # See the readme file for full references of methods and code used in this script. Please cite references if this script is used for a publication. 
-# Please use this script at your own risk
+# Please use this script at your own risk.
 
 
 
@@ -30,7 +30,8 @@
 # 1.#   Run setup
 # # #
 
-setwd("M:/PhD/Khamra/R/Combined script/Script for Github")
+    # Set working directory
+setwd()
 
     # Load packages
 library(locfit)
@@ -70,10 +71,9 @@ df <- data.frame(depthtop = data[1],
                  depthbot = data[2],
                  agetop = data[3],
                  agebot = data[4],
-                 volume = data[6], # In cm³ 
+                 volume = data[6], # In cmÂ³ 
                  CHAR = proxy) # Absolute charcoal counts
 df <- as.matrix(na.omit(df))
-
 
 CHAR <- paleofire::pretreatment(df[,1:5],df[,6]) # Calculating CHAR using median time resolution (default)
 x <- CHAR$ybpI # Interpolated ages
@@ -130,7 +130,7 @@ SNI <- CharSNI(SNIdat, win)
 input <- data.frame(depth = data$depth_top, 
                    age = data$age_top,
                    age_error = data$age_uncert,
-                   proxy = proxy/data$vol, # Using concentration (#/cm³)
+                   proxy = proxy/data$vol, # Using concentration (#/cmÂ³)
                    proxy_error = data$proxy_uncert) # Error/uncertainty could be measurement error from duplicates
 
     # Output resolution
@@ -139,7 +139,7 @@ res_out = median(diff(input$age)) # Median resolution (fit to individual record)
     # Running the model (for more extensive records this might take a while)
 char.uncert <- CHARrobust(input, n = n, resolution_out = res_out, 
                           xlab="Age (CE)",
-                          ylab = "CHAR full age uncertainty (#/cm²/yr)",
+                          ylab = "CHAR full age uncertainty (#/cmÂ²/yr)",
                           xlim = range(1950-data[3]),
                           BP = TRUE,
                           scale = FALSE)
