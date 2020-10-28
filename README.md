@@ -9,7 +9,7 @@ R script for the analysis of macroscopic charcoal records from sedimentary archi
 - automated output plots (.pdf)
 - automated output information (.txt) about settings and results, including fire return intervals (FRI)
 
-This script was created in R v.4.0.2 and utilizes packages "paleofire", "locfit", "mixtools" and "stats". No warranty, please use at your own risk.
+This script was created in R v.4.0.2 and utilizes packages "paleofire", "locfit" and "mixtools". No warranty, please use at your own risk.
 
 # How to use the script
 Download the .zip file and unpack into a new folder. Open the R file with the R tool of your choice. Your data should be in a .csv table with the following columns: 
