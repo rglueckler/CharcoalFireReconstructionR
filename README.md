@@ -1,19 +1,19 @@
-# CharcoalAnalysis in R
-R script for the analysis of macroscopic charcoal records from sedimentary archives. It combines previous work (please check publications listed below) to provide a quick way of evaluating fire signals within the record, featuring:
-- interpolation to equal time steps
-- calculation of charcoal accumulation rates (CHAR)
-- determination of background and peak components
-- a signal to noise-ratio index (SNI) for the peak component
-- identification of fire episodes and their SNI-derived quality
-- an additional robust analysis approach taking into account age and proxy uncertainties
-- automated output plots (.pdf)
-- automated output information (.txt) about settings and results, including fire return intervals (FRI)
+# CharcoalAnalysis in R (v.1.0)
+R script for the analysis of macroscopic charcoal records from sedimentary archives. It combines previous work (please check publications listed below) to provide a quick way of evaluating fire signals within the record using both a "classic" and a "robust" approach, featuring:
+- Interpolation to equal time steps
+- Calculation of charcoal accumulation rates (CHAR)
+- Separation into background and peak components
+- Signal-to-noise index (SNI) for the peak component
+- Identification of fire episodes and their SNI-derived quality
+- Robust charcoal analysis approach, taking into account age and proxy uncertainties
+- Automated basic output plots (.pdf)
+- Automated output information (.txt) about settings and results, including fire return intervals (FRI)
 
 This script was created in R v.4.0.2 and utilizes packages "paleofire", "locfit" and "mixtools". No warranty, please use at your own risk.
 
 # How to use the script
-Download the .zip file and unpack into a new folder. Open the R file with the R tool of your choice. Your data should be in a .csv table with the following columns: 
-1: depth (top), 2: depth (bottom), 3: age (top), 4: age (bottom), 5: age uncertainty, 6: volume of sediment, 7: number of counted charcoal particles, 8: uncertainty of charcoal count. You can add additional columns (e.g. for individual size classes or morphotypes) and then select the respective columns within the script. Various settings likely have to be adjusted to fit your specific data (e.g. LOESS window width, output resolution) - see comments included in the script. 
+After downloading the and extracting the files to a working directory, the "CharcoalAnalysis_ExampleRun.R" file provides a quick way to test the script with an exemplary charcoal record created with random numbers. The according file, which might also be used as a template for custom data, is located in: "/Records/RandomCore/RandomCore.csv". For easy handling within the script new records should be added in folders sharing the record's name, e.g. "/Records/NewRecord1/NewRecord1.csv". After starting the "CharcoalAnalysis_ExampleRun.R" script, follow the steps outlined with #comments. After declaring the name of the record (e.g. record_name = "NewRecord1") and looking through the other input variables that could be adjusted, the script could be run in its entirety. Output files will be saved within the respective folder of a record. For more details on the methods and functions used, please refer to references mentioned below. 
+Custom data for each sample of a record should be in a .csv table with the following columns: 1: "depth_top" (depth at top/upper end of sample interval), 2: "depth_bot" (depth at bottom/lower end of sample interval), 3: "age_top" (age at top/upper end of sample interval), 4: "age_bot" (age at bottom/lower end of sample interval), 5: "age_uncert" (age uncertainty, e.g. 1 sig range of estimated ages), 6: "vol" (volume, used in cm³), 7: "proxy" (i.e. absolute charcoal counts), 8: "proxy_uncert" (proxy uncertainty or error, i.e. deviation estimated by counts from duplicate samples). 
 
 # Literature
 For the original version of "CharAnalysis", please check the respective repository by Philip Higuera (https://github.com/phiguera/CharAnalysis) and these publications:
