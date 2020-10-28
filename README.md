@@ -1,4 +1,4 @@
-# CharcoalAnalysis in R (v.1.0)
+# CharcoalAnalysis in R (v1.0)
 R script for the analysis of macroscopic charcoal records from sedimentary archives. It combines previous work (please see references listed below) to provide a quick way of evaluating fire signals within the record using both a "classic" and a "robust" approach, featuring:
 - Interpolation to equal time steps
 - Calculation of charcoal accumulation rates (CHAR)
@@ -9,7 +9,7 @@ R script for the analysis of macroscopic charcoal records from sedimentary archi
 - Automated basic output plots (.pdf)
 - Automated output information (.txt) about settings and results, including fire return intervals (FRI)
 
-This script was created in R v.4.0.2 and utilizes packages "paleofire", "locfit" and "mixtools". No warranty, please use at your own risk.
+This script was created in R v4.0.2 and utilizes packages "paleofire", "locfit" and "mixtools". No warranty, please use at your own risk.
 
 # How to use the script
 After downloading and extracting the files to a working directory, the "CharcoalAnalysis_ExampleRun.R" file provides a quick way to test the script with an exemplary charcoal record created with random numbers. The according file, which might also be used as a template for custom data, is located in: "/Records/RandomCore/RandomCore.csv". For easy handling within the script new records should be added in folders sharing the record's name, e.g. "/Records/NewRecord1/NewRecord1.csv". After starting the "CharcoalAnalysis_ExampleRun.R" script, follow the steps outlined with #comments. After declaring the name of the record (e.g. record_name = "NewRecord1") and looking through the other input variables that could be adjusted, the script could be run in its entirety. Output files will be saved within the respective folder of a record. For more details on the methods and functions used, please refer to references mentioned below. 
