@@ -39,10 +39,6 @@
 #' 
 #' @return something to still describe.
 #' 
-#' @examples
-#' 
-#' ## load example data set
-#' load("~/Desktop/mchar.rda") # not yet available
 #' 
 #' 
 CHARrobust <- function(
