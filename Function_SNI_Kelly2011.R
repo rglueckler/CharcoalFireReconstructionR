@@ -1,5 +1,5 @@
 CharSNI = function(CharData,BandWidth) {
-  ## Calculate signal-to-noise index (SNI) for a charcoal record.
+  ## Calculate signal-to-noise index (SNI) for a charcoal record (see Kelly et al., 2011).
   #
   # CharData = Matrix of input data with one row per sample, containing:
   #   Column 1: age associated with the sample (yr)
