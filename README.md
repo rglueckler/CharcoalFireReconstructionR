@@ -18,17 +18,20 @@ Custom data for each sample of a record should be in a .csv table with the follo
 # References
 For the original version of "CharAnalysis", please check the respective repository by Philip Higuera (https://github.com/phiguera/CharAnalysis) and these publications:
 
-<blockquote>Higuera, P.E., L.B. Brubaker, P.M. Anderson, F.S. Hu, T.A. Brown (2009): Vegetation mediated the impacts of postglacial climatic change on fire regimes in the south-central Brooks Range, Alaska. Ecological Monographs 79: 201-219. DOI: https://doi.org/10.1890/07-2019.1</blockquote>
+<blockquote>Higuera P.E., L.B. Brubaker, P.M. Anderson, F.S. Hu, T.A. Brown (2009): Vegetation mediated the impacts of postglacial climatic change on fire regimes in the south-central Brooks Range, Alaska. Ecological Monographs 79: 201-219. DOI: https://doi.org/10.1890/07-2019.1</blockquote>
 
-<blockquote>Higuera, P.E., D.G. Gavin, P.J. Bartlein and D.J. Hallett (2010): Peak detection in sediment-charcoal records: impacts of alternative data analysis methods on fire-history interpretations. International Journal of Wildland Fire 19: 996-1014. DOI: https://doi.org/10.1071/WF09134</blockquote>
+<blockquote>Higuera P.E., D.G. Gavin, P.J. Bartlein and D.J. Hallett (2010): Peak detection in sediment-charcoal records: impacts of alternative data analysis methods on fire-history interpretations. International Journal of Wildland Fire 19: 996-1014. DOI: https://doi.org/10.1071/WF09134</blockquote>
 
 For the translation of "CharAnalysis" into R used in the present script, featuring a detailed description of the robust analysis approach, please see:
 
-<blockquote>Dietze, E., D. Brykała, L.T. Schreuder, K. Jażdżewski, O. Blarquez, A. Brauer, M. Dietze, M. Obremska, F. Ott, A. Pieńczewska, S. Schouten, E.C. Hopmans, M. Słowiński (2019): Human-induced fire regime shifts during 19th century industrialization: A robust fire regime reconstruction using northern Polish lake sediments. PLoS ONE 14(9). DOI: https://doi.org/10.1371/journal.pone.0222011</blockquote>
+<blockquote>Dietze E., D. Brykała, L.T. Schreuder, K. Jażdżewski, O. Blarquez, A. Brauer, M. Dietze, M. Obremska, F. Ott, A. Pieńczewska, S. Schouten, E.C. Hopmans, M. Słowiński (2019): Human-induced fire regime shifts during 19th century industrialization: A robust fire regime reconstruction using northern Polish lake sediments. PLoS ONE 14(9). DOI: https://doi.org/10.1371/journal.pone.0222011</blockquote>
 
 For further detail and the script on the SNI, please see:
 
-<blockquote>Kelly, R., P.E. Higuera, C. Barrett, F. Hu (2011): A signal-to-noise index to quantify the potential for peak detection in sediment-charcoal records. Quaternary Research 75(1): 11-17. DOI: https://doi.org/10.1016/j.yqres.2010.07.011</blockquote>
+<blockquote>Kelly R., P.E. Higuera, C. Barrett, F. Hu (2011): A signal-to-noise index to quantify the potential for peak detection in sediment-charcoal records. Quaternary Research 75(1): 11-17. DOI: https://doi.org/10.1016/j.yqres.2010.07.011</blockquote>
+
+The paleofire R package is presented in detail here:
+<blockquote>Blarquez O., Vannière B., Marlon J.R., Daniau A.-L., Power M.J., Brewer S., Bartlein P.J. (2014): paleofire: An R package to analyse sedimentary charcoal records from the Global Charcoal Database to reconstruct past biomass burning. Computers and Geosciences 72, 255-261. DOI: https://doi.org/10.1016/j.cageo.2014.07.020</blockquote>
 
 # Citation
 If you use this script for a publication, please cite the literature mentioned above.
