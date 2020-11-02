@@ -1,4 +1,4 @@
-#' Model age-proxy-uncertainty (robust charcoal accumulation rate / CHAR)
+#' Model age-proxy-uncertainty (robust charcoal accumulation rate / CHAR) based on Dietze et al., 2019.
 #' 
 #' This function models the uncertainty imposed on a proxy data set with 
 #' continuously sampled proxy values and their respective proxy error in stratigraphic order. 
