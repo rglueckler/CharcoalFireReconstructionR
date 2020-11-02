@@ -71,7 +71,7 @@ df <- data.frame(depthtop = data[1],
                  depthbot = data[2],
                  agetop = data[3],
                  agebot = data[4],
-                 volume = data[6], # In cm³ 
+                 volume = data[6], # In cm^3 
                  CHAR = proxy) # Absolute charcoal counts
 df <- as.matrix(na.omit(df))
 
@@ -130,7 +130,7 @@ SNI <- CharSNI(SNIdat, win)
 input <- data.frame(depth = data$depth_top, 
                    age = data$age_top,
                    age_error = data$age_uncert,
-                   proxy = proxy/data$vol, # Using concentration (#/cm³)
+                   proxy = proxy/data$vol, # Using concentration (# cm^-3)
                    proxy_error = data$proxy_uncert) # Error/uncertainty could be measurement error from duplicates
 
     # Output resolution
@@ -139,7 +139,7 @@ res_out = median(diff(input$age)) # Median resolution (fit to individual record)
     # Running the model (for more extensive records this might take a while)
 char.uncert <- CHARrobust(input, n = n, resolution_out = res_out, 
                           xlab="Age (CE)",
-                          ylab = "CHAR full age uncertainty (#/cm²/yr)",
+                          ylab = "CHAR full age uncertainty (# cm^-2 yr^-1)",
                           xlim = range(1950-data[3]),
                           BP = TRUE,
                           scale = FALSE)
@@ -262,7 +262,7 @@ pdf(file = paste0("./Records/", record_name, "/", record_name, run_name, "_plott
 
     # Plot classic CHAR peak component and SNI
 par(mfrow = c(6,1), mar = c(0,5,2,5))
-plot(1950-x, peak, xaxt = "n", xlab = "", ylab = "particles/cm²/yr", las = 1, type="h", lend = 1, lwd = 3, 
+plot(1950-x, peak, xaxt = "n", xlab = "", ylab = "particles cm^-2 yr^-1", las = 1, type="h", lend = 1, lwd = 3, 
      col = ifelse(peak < treshold,'darkgrey','grey30'), yaxt = "n")
 abline(h = 0, col = "gray35")
 title("Classic CHAR peak component", adj = 0.01, line = -1)
@@ -277,7 +277,7 @@ axis(4, las = 1)
 mtext("Index", side = 4, line = 3, cex = 0.7)
 
     # Classic CHAR (sum) with background component and identified fire episodes
-plot(1950-x, y, xlim = range(1950-data$age_top), xlab = "", ylim = range(CHAR$accI), ylab = "particles/cm²/yr", las = 1, type = "l",lty = 1, lwd = 2, 
+plot(1950-x, y, xlim = range(1950-data$age_top), xlab = "", ylim = range(CHAR$accI), ylab = "particles cm^-2 yr^-1", las = 1, type = "l",lty = 1, lwd = 2, 
      col = "black", xaxt = "n", yaxt = "n")
 axis(2, las = 1)
 lines(1950-x, predbootA$fit, type="l", lwd = 3, col = "deepskyblue3")
@@ -300,7 +300,7 @@ polygon(x = c(ageMC, rev(ageMC)), y = y_back,
 lines(ageMC[],char_back_stats[1,], lwd = 2)
 abline(h = 0, col = "gray35")
 title("Robust CHAR background component", adj = 0.01, line = -1)
-mtext("particles/cm²/yr", side = 4, line = 3, cex = 0.7)
+mtext("particles cm^-2 yr^-1", side = 4, line = 3, cex = 0.7)
 
     # Robust CHAR peak component
 plot(NA,  xlim = range(1950-data$age_top), ylim = range(y_peak),
@@ -320,7 +320,7 @@ polygon(x = c(char.uncert$t_med[], rev(char.uncert$t_med[])), y = c(char.uncert$
         col = "grey",  border = NA)
 lines(char.uncert$t_med[], char.uncert$q_50, lwd = 2)
 title("Robust CHAR", adj = 0.01, line = -1)
-mtext("particles/cm²/yr", side = 4, line = 3, cex = 0.7)
+mtext("particles cm^-2 yr^-1", side = 4, line = 3, cex = 0.7)
 
 dev.off()
 
