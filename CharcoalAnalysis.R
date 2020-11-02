@@ -5,10 +5,10 @@
 ### Description
 # This script can be used to assess fire signals within sedimentary charcoal records in both a "classic" and a "robust" approach.
 # The classic approach (classic CHAR) calculates charcoal accumulation rates (CHAR) from charcoal counts per depth and unit of time. It separates 
-# the record into background and peak components, obtains signal to noise index values for the peak component and identifies peaks above a 
-# previously established threshold as fire episodes.
+# the influx record (calculated with the "paleofire" R package, Blarquez et al., 2014) into background and peak components (after Higuera et al., 2009, 2010), 
+# obtains signal to noise index values for the peak component and identifies peaks above a previously established threshold as fire episodes (after Kelly et al., 2011).
 # The robust approach (robust CHAR) follows a similar overall procedure, but also includes a Monte Carlo-based method to incorporate age, proxy 
-# and user input related uncertainties into the resulting timeseries. 
+# and user input related uncertainties into the resulting timeseries (see Dietze et al., 2019). 
 # Please refer to the readme file and references therein for more information.
 
 ### Included steps:
@@ -64,7 +64,7 @@ n_s <- 1000 # Number of smoothings
 
 
 # # #
-# 2.#   Classic CHAR: Separation of background and peak components (see Higuera et al., 2009, 2010)
+# 2.#   Classic CHAR: Separation of background and peak components (see Higuera et al., 2009, 2010; Dietze et al., 2019)
 # # #
 
 df <- data.frame(depthtop = data[1],
@@ -75,7 +75,7 @@ df <- data.frame(depthtop = data[1],
                  CHAR = proxy) # Absolute charcoal counts
 df <- as.matrix(na.omit(df))
 
-CHAR <- paleofire::pretreatment(df[,1:5],df[,6]) # Calculating CHAR using median time resolution (default)
+CHAR <- paleofire::pretreatment(df[,1:5],df[,6]) # Calculating CHAR using median time resolution (default) with the paleofire package
 x <- CHAR$ybpI # Interpolated ages
 y <- CHAR$accI # Interpolated CHAR
 
@@ -109,7 +109,7 @@ fire_ad <- 1950-fire_bp  # Fire dates in CE / AD
 
 
 # # #
-# 3.#   Classic CHAR: SNI (see Kelly et al., 2011)
+# 3.#   Classic CHAR: signal-to-noise index SNI (see Kelly et al., 2011)
 # # #
 
     # Load data
@@ -130,7 +130,7 @@ SNI <- CharSNI(SNIdat, win)
 input <- data.frame(depth = data$depth_top, 
                    age = data$age_top,
                    age_error = data$age_uncert,
-                   proxy = proxy/data$vol, # Using concentration (#/cm³)
+                   proxy = proxy/data$vol, # Using concentration (#/cmÂ³)
                    proxy_error = data$proxy_uncert) # Error/uncertainty could be measurement error from duplicates
 
     # Output resolution
@@ -139,7 +139,7 @@ res_out = median(diff(input$age)) # Median resolution (fit to individual record)
     # Running the model (for more extensive records this might take a while)
 char.uncert <- CHARrobust(input, n = n, resolution_out = res_out, 
                           xlab="Age (CE)",
-                          ylab = "CHAR full age uncertainty (#/cm²/yr)",
+                          ylab = "CHAR full age uncertainty (#/cmÂ²/yr)",
                           xlim = range(1950-data[3]),
                           BP = TRUE,
                           scale = FALSE)
@@ -262,7 +262,7 @@ pdf(file = paste0("./Records/", record_name, "/", record_name, run_name, "_plott
 
     # Plot classic CHAR peak component and SNI
 par(mfrow = c(6,1), mar = c(0,5,2,5))
-plot(1950-x, peak, xaxt = "n", xlab = "", ylab = "particles/cm�/yr", las = 1, type="h", lend = 1, lwd = 3, 
+plot(1950-x, peak, xaxt = "n", xlab = "", ylab = "particles/cm²/yr", las = 1, type="h", lend = 1, lwd = 3, 
      col = ifelse(peak < treshold,'darkgrey','grey30'), yaxt = "n")
 abline(h = 0, col = "gray35")
 title("Classic CHAR peak component", adj = 0.01, line = -1)
@@ -277,7 +277,7 @@ axis(4, las = 1)
 mtext("Index", side = 4, line = 3, cex = 0.7)
 
     # Classic CHAR (sum) with background component and identified fire episodes
-plot(1950-x, y, xlim = range(1950-data$age_top), xlab = "", ylim = range(CHAR$accI), ylab = "particles/cm�/yr", las = 1, type = "l",lty = 1, lwd = 2, 
+plot(1950-x, y, xlim = range(1950-data$age_top), xlab = "", ylim = range(CHAR$accI), ylab = "particles/cm²/yr", las = 1, type = "l",lty = 1, lwd = 2, 
      col = "black", xaxt = "n", yaxt = "n")
 axis(2, las = 1)
 lines(1950-x, predbootA$fit, type="l", lwd = 3, col = "deepskyblue3")
@@ -293,14 +293,14 @@ title("Classic CHAR", adj = 0.01, line = -1)
 
     # Robust CHAR background component
 plot(NA, xlim = range(1950-data$age_top), ylim = range(y_back),
-     xlab="", ylab = "particles/cm�/yr", las = 1, xaxt = "n", yaxt = "n")
+     xlab="", ylab = "particles/cm²/yr", las = 1, xaxt = "n", yaxt = "n")
 axis(4, las = 1)
 polygon(x = c(ageMC, rev(ageMC)), y = y_back,
         col = "grey",  border = NA)
 lines(ageMC[],char_back_stats[1,], lwd = 2)
 abline(h = 0, col = "gray35")
 title("Robust CHAR background component", adj = 0.01, line = -1)
-mtext("particles/cm�/yr", side = 4, line = 3, cex = 0.7)
+mtext("particles/cm²/yr", side = 4, line = 3, cex = 0.7)
 
     # Robust CHAR peak component
 plot(NA,  xlim = range(1950-data$age_top), ylim = range(y_peak),
@@ -320,7 +320,7 @@ polygon(x = c(char.uncert$t_med[], rev(char.uncert$t_med[])), y = c(char.uncert$
         col = "grey",  border = NA)
 lines(char.uncert$t_med[], char.uncert$q_50, lwd = 2)
 title("Robust CHAR", adj = 0.01, line = -1)
-mtext("particles/cm�/yr", side = 4, line = 3, cex = 0.7)
+mtext("particles/cm²/yr", side = 4, line = 3, cex = 0.7)
 
 dev.off()
 
