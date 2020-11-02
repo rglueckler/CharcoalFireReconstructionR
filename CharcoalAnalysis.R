@@ -6,8 +6,8 @@
 # This script can be used to assess fire signals within sedimentary charcoal records in both a "classic" and a "robust" approach.
 # The classic approach (classic CHAR) calculates charcoal accumulation rates (CHAR) from charcoal counts per depth and unit of time. It separates 
 # the influx record (calculated with the "paleofire" R package, Blarquez et al., 2014) into background and peak components (after Higuera et al., 2009, 2010), 
-# obtains signal to noise index values for the peak component and identifies peaks above a previously established threshold as fire episodes (after Kelly et al., 2011).
-# The robust approach (robust CHAR) follows a similar overall procedure, but also includes a Monte Carlo-based method to incorporate age, proxy 
+# obtains signal to noise index values for the peak component (after Kelly et al., 2011) and identifies peaks above a previously established threshold as 
+# fire episodes. The robust approach (robust CHAR) follows a similar overall procedure, but also includes a Monte Carlo-based method to incorporate age, proxy 
 # and user input related uncertainties into the resulting timeseries (see Dietze et al., 2019). 
 # Please refer to the readme file and references therein for more information.
 
@@ -71,11 +71,11 @@ df <- data.frame(depthtop = data[1],
                  depthbot = data[2],
                  agetop = data[3],
                  agebot = data[4],
-                 volume = data[6], # In cm3 
+                 volume = data[6], # In cm³ 
                  CHAR = proxy) # Absolute charcoal counts
 df <- as.matrix(na.omit(df))
 
-CHAR <- paleofire::pretreatment(df[,1:5],df[,6]) # Calculating CHAR using median time resolution (default) with the paleofire package
+CHAR <- paleofire::pretreatment(df[,1:5],df[,6]) # Calculating CHAR using median time resolution (default) with the paleofire package (Blarquez et al., 2014)
 x <- CHAR$ybpI # Interpolated ages
 y <- CHAR$accI # Interpolated CHAR
 
@@ -130,7 +130,7 @@ SNI <- CharSNI(SNIdat, win)
 input <- data.frame(depth = data$depth_top, 
                    age = data$age_top,
                    age_error = data$age_uncert,
-                   proxy = proxy/data$vol, # Using concentration (#/cmÂ³)
+                   proxy = proxy/data$vol, # Using concentration (#/cm³)
                    proxy_error = data$proxy_uncert) # Error/uncertainty could be measurement error from duplicates
 
     # Output resolution
@@ -139,7 +139,7 @@ res_out = median(diff(input$age)) # Median resolution (fit to individual record)
     # Running the model (for more extensive records this might take a while)
 char.uncert <- CHARrobust(input, n = n, resolution_out = res_out, 
                           xlab="Age (CE)",
-                          ylab = "CHAR full age uncertainty (#/cmÂ²/yr)",
+                          ylab = "CHAR full age uncertainty (#/cm²/yr)",
                           xlim = range(1950-data[3]),
                           BP = TRUE,
                           scale = FALSE)
@@ -293,7 +293,7 @@ title("Classic CHAR", adj = 0.01, line = -1)
 
     # Robust CHAR background component
 plot(NA, xlim = range(1950-data$age_top), ylim = range(y_back),
-     xlab="", ylab = "particles/cm²/yr", las = 1, xaxt = "n", yaxt = "n")
+     xlab="", ylab = "", las = 1, xaxt = "n", yaxt = "n")
 axis(4, las = 1)
 polygon(x = c(ageMC, rev(ageMC)), y = y_back,
         col = "grey",  border = NA)
