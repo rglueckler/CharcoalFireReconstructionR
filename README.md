@@ -35,7 +35,9 @@ The paleofire R package is presented in detail here:
 <blockquote>Blarquez O., Vannière B., Marlon J.R., Daniau A.-L., Power M.J., Brewer S., Bartlein P.J. (2014): paleofire: An R package to analyse sedimentary charcoal records from the Global Charcoal Database to reconstruct past biomass burning. Computers and Geosciences 72, 255-261. DOI: https://doi.org/10.1016/j.cageo.2014.07.020</blockquote>
 
 # Citation
-If you use this script for a publication, please cite the literature mentioned above.
+If you use this script for a publication, please also consider citing the literature mentioned above.
+
+<blockquote>Glückler R., U. Herzschuh, S. Kruse, A. Andreev, S.A. Vyse, B. Winkler, B.K. Biskaborn, L. Pestryakova, E. Dietze (2020): Wildfire history of the boreal forest of southwestern Yakutia (Siberia) over the last two millennia documented by a lake-sedimentary charcoal record. Biogeosciences Discussions [Preprint]. DOI: https://doi.org/10.5194/bg-2020-415</blockquote>
 
 # Contact
 For questions or comments/feedback, feel free to contact ramesh.glueckler@awi.de
