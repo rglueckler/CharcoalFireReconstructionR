@@ -58,8 +58,8 @@ proxy = data[7]
     # Define window width to use in this run (as percentage of total record length; for LOWESS and SNI)
 win_width = 0.25
 
-    # Use a global (TRUE, default) or local threshold (FALSE)? -> Local threshold was used for tests only and should be regarded as experimental
-use_global_tresh = FALSE
+    # Use a global (TRUE, default) or local threshold (FALSE)? -> Local threshold was used for tests only
+use_global_tresh = TRUE
 
     # Parameters for robust CHAR (see Dietze et al., 2019)
 use_data_aggregation = TRUE # Aggregate data for robust CHAR (TRUE) or not (FALSE)
