@@ -78,7 +78,7 @@ CHARrobust <- function(
     age_diff <- -c(NA,diff(age_i))
     
     ## set inverted ages to NA
-    age_diff[age_diff < 0] <- NA
+    #age_diff[age_diff < 0] <- NA
     
     ## calculate unit deposition time (= 1/sedimentation rate)
     t_unit <-  age_diff / diff(c(NA, data$depth)) 
@@ -140,7 +140,7 @@ CHARrobust <- function(
       proxy_flux <- proxy_i / sed_i
       
       ## set inverted ages to NA
-      proxy_flux[proxy_flux < 0] <- NA
+      #proxy_flux[proxy_flux < 0] <- NA
       
       ## return result
       return(proxy_flux)
