@@ -37,7 +37,7 @@ The paleofire R package is presented in detail here:
 # Citation
 If you use this script for a publication, please also consider citing the literature mentioned above.
 
-<blockquote>Glückler R., U. Herzschuh, S. Kruse, A. Andreev, S.A. Vyse, B. Winkler, B.K. Biskaborn, L. Pestryakova, E. Dietze (2020): Wildfire history of the boreal forest of southwestern Yakutia (Siberia) over the last two millennia documented by a lake-sedimentary charcoal record. Biogeosciences Discussions [Preprint]. DOI: https://doi.org/10.5194/bg-2020-415</blockquote>
+<blockquote>Glückler R., U. Herzschuh, S. Kruse, A. Andreev, S.A. Vyse, B. Winkler, B.K. Biskaborn, L. Pestryakova, E. Dietze (in press): Wildfire history of the boreal forest of southwestern Yakutia (Siberia) over the last two millennia documented by a lake-sedimentary charcoal record. Biogeosciences. DOI: https://doi.org/10.5194/bg-2020-415</blockquote>
 
 # Contact
 For questions or comments/feedback, feel free to contact ramesh.glueckler@awi.de
