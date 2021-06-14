@@ -300,7 +300,7 @@ polygon(x = c(ageMC, rev(ageMC)), y = y_back,
 lines(ageMC[],char_back_stats[1,], lwd = 2)
 abline(h = 0, col = "gray35")
 title("Robust CHAR background component", adj = 0.01, line = -1)
-mtext("particles cm^-2 yr^-1", side = 4, line = 3, cex = 0.7)
+mtext("zscores", side = 4, line = 3, cex = 0.7)
 
     # Robust CHAR peak component
 plot(NA,  xlim = range(1950-data$age_top), ylim = range(y_peak),
