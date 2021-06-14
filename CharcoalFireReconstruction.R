@@ -50,7 +50,7 @@ run_name = "_Run1" # Additional naming resource if multiple runs of the same rec
 dir.create(path = paste0("./Records/", record_name, sep = ""))
    
     # Input file named after record_name, with these columns: depth_top, depth_bot, age_top, age_bot, age_uncert, vol, proxy, proxy_uncert
-data <- read.csv(paste0("./Records/", record_name, "/", record_name, ".csv"), header = TRUE, sep = ";")
+data <- read.csv(paste0("./Records/", record_name, "/", record_name, ".csv"), header = TRUE, sep = ",")
 
     # Define the proxy of this run (i.e. charcoal counts)
 proxy = data[7]
